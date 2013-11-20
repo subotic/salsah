@@ -9,9 +9,9 @@ bridge between SALSAH and their application, or for creating a completely new GU
 # Group SALSAH Resources
 In SALSAH we are always working on *SALSAH Resources* which are representations of some object, e.g., Book, Manuscript, Incunabula, etc.
 
-##  Collection [/Resources]
+##  Collection [/resources]
 ### List all Resources [GET]
-This request is 
+This request is limited to returning the first 100 resource.
 + Response 200 (application/json)
 
         {
@@ -25,7 +25,7 @@ This request is
         "userdata":{"lang":"en","extsearch":{"display_type":"table","saved_query":{"type":"SELECT","tables":["resource"],"fields":["resource.id","resource.person_id","resource.project_id"],"clauses":[[{"field":"resource.resource_type_id"},"=",{"integer":55}],"AND",[{"field":"resource.project_id"},"=",{"integer":13}]],"orderby":null,"groupby":null,"limits":null,"distinct":true,"calc_rows":false},"property_id":0,"start_at":0,"show_nrows":-1}}}
         }
 
-### Create a Note [POST]
+### Create a Resource [POST]
 + Request (application/json)
 
         { "title": "Buy cheese and bread for breakfast." }
@@ -34,7 +34,7 @@ This request is
 
         { "id": 3, "title": "Buy cheese and bread for breakfast." }
 
-## Note [/notes/{id}]
+## Resource [/resources/{id}]
 A single Note object with all its details
 
 + Parameters
