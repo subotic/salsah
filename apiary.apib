@@ -9,15 +9,21 @@ bridge between SALSAH and their application, or for creating a completely new GU
 # Group SALSAH Resources
 In SALSAH we are always working on *SALSAH Resources* which are representations of some object, e.g., Book, Manuscript, Incunabula, etc.
 
-##  Collection [/notes]
-### List all Notes [GET]
+##  Collection [/Resources]
+### List all Resources [GET]
+This request is 
 + Response 200 (application/json)
 
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
+        {
+        "status":0,
+        "resources":
+            [
+                {"id":"1","value":["Zeitgl\u00f6cklein des Lebens und Leidens Christi"]},
+                {"id":"2","value":["a1r, Titelblatt"]},
+                {"id":"3","value":["a1v, Titelblatt, R\u00fcckseite"]}
+            ],
+        "userdata":{"lang":"en","extsearch":{"display_type":"table","saved_query":{"type":"SELECT","tables":["resource"],"fields":["resource.id","resource.person_id","resource.project_id"],"clauses":[[{"field":"resource.resource_type_id"},"=",{"integer":55}],"AND",[{"field":"resource.project_id"},"=",{"integer":13}]],"orderby":null,"groupby":null,"limits":null,"distinct":true,"calc_rows":false},"property_id":0,"start_at":0,"show_nrows":-1}}}
+        }
 
 ### Create a Note [POST]
 + Request (application/json)
